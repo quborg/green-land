@@ -1,0 +1,15 @@
+HOST=0.0.0.0
+PORT=5050
+CLIENT_HOSTNAME=http://0.0.0.0:3000
+
+SECRET_CODE=!GàgRE%(*&)J4iD$#@!4)(&)
+SECRET_CODE2=#éD$^F6E`*$@AZ/0à</4Re$
+
+MONGO_CONNECT=mongodb+srv://root:8MfSpf8Hx330hsxE@cluster0.cdtod.mongodb.net/green-land?retryWrites=true&w=majority
+
+GOOGLE_EMAIL_ADDRESS=gr30n.land@gmail.com
+GOOGLE_CLIENT_ID=682949532926-iv6m8jvfk4mhhas0pb86t9cc45ruke5n.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=Zh6v2Coq3W8EKMu-SsOAsWQM
+GOOGLE_OAUTH2_REFRESH_TOKEN=1//04DqNi4gF60O8CgYIARAAGAQSNwF-L9Irz6ocaw6jE8aCQ0dfVJgslMEeriTT75OM9RxvGRIlFwNOJCwcPL3lRcEooIoRd0ttxjY
+
+NO_REPLAY_EMAIL_ADDRESS=gr30n.land@gmail.com
