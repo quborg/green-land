@@ -14,6 +14,7 @@ const categories: { Query: Query } = {
     getCategories: async (_, { args }) => {
       try {
         const categories = await Category.find(args?.filter || { parent: 0 })
+          .sort('order')
           .skip(args?.start)
           .limit(args?.limit)
           .lean();

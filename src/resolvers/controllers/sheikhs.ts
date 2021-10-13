@@ -18,10 +18,16 @@ const sheikhs: { Query: Query } = {
           sheikhs = await Sheikh.find({
             name: { $regex: query, $options: 'i' },
           })
+            .sort('order')
             .skip(args?.start)
             .limit(args?.limit)
             .lean();
-        } else sheikhs = await Sheikh.find().skip(args?.start).limit(args?.limit).lean();
+        } else
+          sheikhs = await Sheikh.find()
+            .sort('order')
+            .skip(args?.start)
+            .limit(args?.limit)
+            .lean();
         return sheikhs;
       } catch (err) {
         throw new Error(err);
