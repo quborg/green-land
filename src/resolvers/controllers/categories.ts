@@ -1,4 +1,3 @@
-import { Types } from 'mongoose';
 import { Category } from '../models';
 
 const categories: { Query: Query } = {
@@ -8,19 +7,30 @@ const categories: { Query: Query } = {
         const category = await Category.findById(_id);
         return category;
       } catch (err) {
-        throw new Error(err);
+        throw new Error(err as string);
       }
     },
     getCategories: async (_, { args }) => {
       try {
-        const categories = await Category.find(args?.filter || { parent: 0 })
-          .sort('order')
-          .skip(args?.start)
-          .limit(args?.limit)
-          .lean();
+        let categories: Maybe<ICategory[]>;
+        if (args?.filters?.name) {
+          const query = args.filters.name.toString();
+          categories = await Category.find({
+            name: { $regex: query, $options: 'i' },
+          })
+            .skip(args?.start)
+            .limit(args?.limit)
+            .lean();
+        } else {
+          categories = await Category.find(args?.filters || { parent: 0 })
+            .sort('order')
+            .skip(args?.start)
+            .limit(args?.limit)
+            .lean();
+        }
         return categories;
       } catch (err) {
-        throw new Error(err);
+        throw new Error(err as string);
       }
     },
   },

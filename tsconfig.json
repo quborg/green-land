@@ -15,12 +15,10 @@
       "src/*": ["src/*"],
       "config/*": ["config/*"]
     },
-    "typeRoots": [
-      "./node_modules/@types",
-      "./types"
-    ],
-    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "allowSyntheticDefaultImports": true
   },
+  "no-reference": false,
   "include": ["./index.ts"],
   "exclude": ["node_modules"]
 }

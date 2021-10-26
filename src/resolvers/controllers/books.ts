@@ -1,4 +1,4 @@
-import { Book, Type } from '../models';
+import { Book } from '../models';
 
 const books: { Query: Query } = {
   Query: {
@@ -7,26 +7,26 @@ const books: { Query: Query } = {
         const color = await Book.findById(_id);
         return color;
       } catch (err) {
-        throw new Error(err);
+        throw new Error(err as string);
       }
     },
-    getBooks: async (args) => {
+    getBooks: async (_, { args }) => {
       try {
         let books: Maybe<IBook[]>;
-        if (!args?.keyword) {
-          books = await Book.find().skip(args?.start).limit(args?.limit).lean();
-        } else {
-          const query = args.keyword.toString();
+        if (args?.filters?.title) {
+          const query = args.filters.title.toString();
           books = await Book.find({
-            name: { $regex: query, $options: 'i' },
+            title: { $regex: query, $options: 'i' },
           })
             .skip(args?.start)
             .limit(args?.limit)
             .lean();
+        } else {
+          books = await Book.find().skip(args?.start).limit(args?.limit).lean();
         }
         return books;
       } catch (err) {
-        throw new Error(err);
+        throw new Error(err as string);
       }
     },
   },

@@ -2,7 +2,9 @@ interface FiltersArgs {
   keyword: string;
   start: number;
   limit: number;
-  filter: {
-    parent: number;
+  filters: {
+    parent?: number;
+    title?: string;
+    name?: string;
   };
 }

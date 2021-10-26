@@ -1,15 +1,17 @@
 import { gql } from 'apollo-server';
 
 const ArgsTypeDefs = gql`
-  input FilterInput {
-    parent: Int!
+  input FiltersInput {
+    parent: Int
+    title: String
+    name: String
   }
 
   input FiltersArgs {
     keyword: String
     start: Int
     limit: Int
-    filter: FilterInput
+    filters: FiltersInput
   }
 `;
 

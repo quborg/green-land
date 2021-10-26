@@ -39,7 +39,7 @@
   //     "files": ["types/*.ts"],
   //     "rules": {
   //       "max-len": [
-  //         "error", 
+  //         "error",
   //         {
   //           "code": 120
   //         }
