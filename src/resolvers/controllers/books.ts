@@ -2,7 +2,7 @@ import { Book } from '../models';
 
 const books: { Query: Query } = {
   Query: {
-    getBook: async (_id) => {
+    getBook: async (_, { _id }) => {
       try {
         const color = await Book.findById(_id);
         return color;
@@ -13,17 +13,14 @@ const books: { Query: Query } = {
     getBooks: async (_, { args }) => {
       try {
         let books: Maybe<IBook[]>;
-        if (args?.filters?.title) {
-          const query = args.filters.title.toString();
-          books = await Book.find({
-            title: { $regex: query, $options: 'i' },
-          })
-            .skip(args?.start)
-            .limit(args?.limit)
-            .lean();
-        } else {
-          books = await Book.find().skip(args?.start).limit(args?.limit).lean();
+        const start = args?.start || 0;
+        const limit = args?.limit || 0;
+        const keyword = (args?.keyword || '').toString();
+        let filter = {};
+        if (keyword) {
+          filter = { title: { $regex: keyword, $options: 'i' } };
         }
+        books = await Book.find(filter).skip(start).limit(limit).lean();
         return books;
       } catch (err) {
         throw new Error(err as string);

@@ -1,10 +1,16 @@
 interface FiltersArgs {
-  keyword: string;
   start: number;
   limit: number;
-  filters: {
-    parent?: number;
-    title?: string;
-    name?: string;
-  };
+  titles: string[];
+  keyword: string;
+  parents: number[];
+  method: 'any' | 'all' | 'exact';
+  in: 'indexing' | 'dump';
+  exclude: string;
+  fatwasOnly: boolean;
+  sheikhs: string[];
+  books: string[];
+  categories: string[];
+  chapters: string[];
+  chapter: string;
 }

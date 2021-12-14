@@ -2,35 +2,21 @@ import { Sheikh } from '../models';
 
 const sheikhs: { Query: Query } = {
   Query: {
-    getSheikh: async (_id) => {
+    getSheikh: async (_, { _id }) => {
       try {
         const color = await Sheikh.findById(_id);
         return color;
       } catch (err) {
-        throw new Error(err);
+        throw new Error(err as string);
       }
     },
-    getSheikhs: async (args) => {
+    getSheikhs: async () => {
       try {
         let sheikhs: Maybe<ISheikh[]>;
-        if (args?.keyword) {
-          const query = args.keyword.toString();
-          sheikhs = await Sheikh.find({
-            name: { $regex: query, $options: 'i' },
-          })
-            .sort('order')
-            .skip(args?.start)
-            .limit(args?.limit)
-            .lean();
-        } else
-          sheikhs = await Sheikh.find()
-            .sort('order')
-            .skip(args?.start)
-            .limit(args?.limit)
-            .lean();
+        sheikhs = await Sheikh.find().sort('order').lean();
         return sheikhs;
       } catch (err) {
-        throw new Error(err);
+        throw new Error(err as string);
       }
     },
   },

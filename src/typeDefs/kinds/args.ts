@@ -1,17 +1,30 @@
 import { gql } from 'apollo-server';
 
 const ArgsTypeDefs = gql`
-  input FiltersInput {
-    parent: Int
-    title: String
-    name: String
+  enum Method {
+    any
+    all
+    exact
   }
-
+  enum In {
+    indexing
+    dump
+  }
   input FiltersArgs {
-    keyword: String
     start: Int
     limit: Int
-    filters: FiltersInput
+    titles: [String]
+    keyword: String
+    parents: [Int]
+    method: Method
+    in: In
+    exclude: String
+    fatwasOnly: Boolean
+    sheikhs: [String]
+    books: [String]
+    categories: [String]
+    chapters: [String]
+    chapter: String
   }
 `;
 

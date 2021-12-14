@@ -11,6 +11,7 @@ interface Environment {
   port: number | string;
   mode: string;
   mongoConnect: string;
+  mongoLocal: string;
   expiresIn: string;
   secretCode: string;
   secretCode2: string;
@@ -35,6 +36,7 @@ const Env: Environment = {
   port: <string>CONST.PORT,
   mode: CONST.MODE,
   mongoConnect: <string>CONST.MONGO_CONNECT,
+  mongoLocal: <string>CONST.MONGO_LOCAL,
   expiresIn: '24h',
   secretCode: <string>CONST.SECRET_CODE,
   secretCode2: <string>CONST.SECRET_CODE2,

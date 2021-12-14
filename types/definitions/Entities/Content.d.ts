@@ -4,6 +4,7 @@ interface Content {
   seq: number;
   sheikh: Sheikh;
   book: Book;
+  category: Category;
   HNum: number;
   line: string;
   offsetStart: number;

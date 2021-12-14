@@ -14,6 +14,15 @@ const ChapterSchema = new Schema<ChapterDocument, ChapterModel>({
     type: Schema.Types.ObjectId,
     ref: 'Book',
   },
+  categories: [
+    {
+      seq: Number,
+      category: {
+        type: Schema.Types.ObjectId,
+        ref: 'Category',
+      },
+    },
+  ],
   fileName: String,
   fileSize: Number,
   duration: Number,

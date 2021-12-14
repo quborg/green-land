@@ -6,7 +6,7 @@ SECRET_CODE=!GàgRE%(*&)J4iD$#@!4)(&)
 SECRET_CODE2=#éD$^F6E`*$@AZ/0à</4Re$
 
 MONGO_CONNECT=mongodb+srv://root:8MfSpf8Hx330hsxE@cluster0.cdtod.mongodb.net/green-land?retryWrites=true&w=majority
-
+MONGO_LOCAL=mongodb://localhost:27017/green-land-local
 GOOGLE_EMAIL_ADDRESS=gr30n.land@gmail.com
 GOOGLE_CLIENT_ID=682949532926-iv6m8jvfk4mhhas0pb86t9cc45ruke5n.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=Zh6v2Coq3W8EKMu-SsOAsWQM

@@ -1,3 +1,3 @@
-type Maybe<T> = T | null;
+type Maybe<T> = T | null | undefined;
 
 type MaybeIn<T> = { [P in keyof T]?: T[P] };

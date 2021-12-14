@@ -8,7 +8,7 @@ const EntitiesTypeDefs = gql`
     format: String
     title: String
     subtitle: String
-    type: Type
+    type: [String]
     authors: [Sheikh]
     presenters: [Sheikh]
     correctors: [Sheikh]
@@ -66,17 +66,16 @@ const EntitiesTypeDefs = gql`
     level: Int
     description: String
   }
-  type Type {
-    _id: ID!
-    name: String
-    order: Int
-    description: String
+  type ChapterCategories {
+    seq: Int
+    category: Category
   }
   type Chapter {
     _id: ID!
     code: Int
     sheikh: Sheikh
     book: Book
+    categories: [ChapterCategories]
     title: String
     fileName: String
     fileSize: Int
@@ -91,19 +90,13 @@ const EntitiesTypeDefs = gql`
     seq: Int
     sheikh: Sheikh
     book: Book
+    category: Category
     HNum: Int
     line: String
     offsetStart: Int
     offsetEnd: Int
     write: String
     ques: Int
-  }
-  type ContentCat {
-    _id: ID!
-    code: Int
-    seq: Int
-    category: Category
-    sheikh: Sheikh
   }
 `;
 

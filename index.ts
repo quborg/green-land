@@ -28,7 +28,7 @@ async function startApolloServer() {
     mongoose.Schema.Types.String.set('trim', true);
     mongoose.set('returnOriginal', false);
     mongoose
-      .connect(ENV.mongoConnect, {
+      .connect(ENV.mongoLocal, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,

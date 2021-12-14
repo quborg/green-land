@@ -8,14 +8,12 @@ const QueriesTypeDefs = gql`
     getSheikhs(args: FiltersArgs): [Sheikh]
     getCategory(_id: ID!): Category
     getCategories(args: FiltersArgs): [Category]
-    getType(_id: ID!): Type
-    getTypes(args: FiltersArgs): [Type]
     getChapter(_id: ID!): Chapter
-    getChapters(args: FiltersArgs): [Chapter]
+    getChapterByCode(code: Int!): Chapter
+    getChapters(args: FiltersArgs): ChaptersResult
+    getChaptersByTitle(args: FiltersArgs): [ChaptersByTitleResult]
     getContent(_id: ID!): Content
-    getContents(args: FiltersArgs): [Content]
-    getContentCat(_id: ID!): ContentCat
-    getContentCats(args: FiltersArgs): [ContentCat]
+    getContents(args: FiltersArgs): ContentsResult
   }
 `;
 

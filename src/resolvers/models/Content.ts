@@ -14,6 +14,10 @@ const ContentSchema = new Schema<ContentDocument, ContentModel>({
     type: Schema.Types.ObjectId,
     ref: 'Book',
   },
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+  },
   HNum: Number,
   line: String,
   offsetStart: Number,
